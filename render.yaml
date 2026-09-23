@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: throttlegate-backend
+    env: docker
+    rootDir: gateway
+    dockerfilePath: Dockerfile
+    plan: free
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_REDIS_URL
+        sync: false
+      - key: ADMIN_SECRET
+        generateValue: true
+      - key: PROXY_URL
+        value: "https://echo.free.beeceptor.com" # Default mock upstream

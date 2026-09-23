@@ -1,0 +1,33 @@
+server:
+  port: 8090
+  shutdown: graceful
+  tomcat:
+    threads:
+      max: 200
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 500ms
+
+# Gateway upstream route configuration for Phase 1
+gateway:
+  upstream:
+    url: "https://jsonplaceholder.typicode.com" # Real external API for testing
+    connect-timeout-ms: 500
+    response-timeout-ms: 2000
+    max-connections: 500
+    max-per-route: 200
+    admin-secret: "${ADMIN_SECRET:super-secret-admin-token}"
+
+# Prometheus Metrics
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, metrics

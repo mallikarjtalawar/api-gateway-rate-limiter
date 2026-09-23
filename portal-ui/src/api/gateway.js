@@ -1,5 +1,5 @@
 // Central API client — all backend calls live here
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8091'
+const API_URL = import.meta.env.DEV ? 'http://localhost:8091' : 'https://throttlegate-backend.onrender.com'
 const BASE = `${API_URL}/admin`
 const getAdminHeaders = () => ({
   'X-Admin-Secret': localStorage.getItem('adminSecret') || '',

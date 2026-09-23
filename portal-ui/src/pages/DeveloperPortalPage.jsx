@@ -44,7 +44,7 @@ export default function DeveloperPortalPage() {
 
   const handleSimulateTraffic = async () => {
     setSimulating(true)
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8091'
+    const API_URL = import.meta.env.DEV ? 'http://localhost:8091' : 'https://throttlegate-backend.onrender.com'
     const reqs = []
     for (let i = 0; i < 50; i++) {
       reqs.push(

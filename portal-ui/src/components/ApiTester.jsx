@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function ApiTester({ initialKey = '', onClose }) {
   const [apiKey, setApiKey] = useState(initialKey)
-  const [path, setPath] = useState('/test')
+  const [path, setPath] = useState('/posts/1')
   const [method, setMethod] = useState('GET')
   const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(false)

@@ -17,7 +17,7 @@ export default function OverviewPage() {
     const reqs = []
     for (let i = 0; i < 50; i++) {
       // Send dummy traffic without key to generate RPS spike without affecting any specific user's metrics
-      reqs.push(fetch(`${API_URL}/test`).catch(() => {}))
+      reqs.push(fetch(`${API_URL}/posts/1`).catch(() => {}))
     }
     await Promise.all(reqs)
     setTimeout(() => setSimulating(false), 500)

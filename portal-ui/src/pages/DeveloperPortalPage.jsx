@@ -48,7 +48,7 @@ export default function DeveloperPortalPage() {
     const reqs = []
     for (let i = 0; i < 50; i++) {
       reqs.push(
-        fetch(`${API_URL}/api/v1/mock/orders`, {
+        fetch(`${API_URL}/posts/1`, {
           headers: { 'X-API-Key': result }
         }).catch(() => {})
       )

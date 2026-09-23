@@ -21,6 +21,7 @@ export default function LoginPage({ onLogin }) {
       await fetchClients()
       onLogin()
     } catch (err) {
+      console.error("Login fetch error:", err);
       localStorage.removeItem('adminSecret')
       setError('Invalid admin secret. Access denied.')
     } finally {
